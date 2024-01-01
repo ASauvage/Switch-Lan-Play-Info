@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="./styles/icon.ico">
+        <link rel="stylesheet" href="./styles/style.css">
+        <link rel='stylesheet' href='./styles/fonts.css'>
+        <link rel="stylesheet" href="./styles/font-awesome.css">
+        <script src="./js/lib/jquery.min.js"></script>
+        <script src="./js/main.js"></script>
+
+        <title>Switch Lan Play Info</title>
+    </head>
+    <body class="css-charcoal">
+        <!-- Page Container -->
+        <div class="css-content css-margin-top" style="max-width:1400px;">
+            <!-- The Grid -->
+            <div class="css-row-padding">
+                <!-- Left Column -->
+                <div class="css-third css-animate-left">
+                    <div class="css-white css-text-grey css-card-4 css-round">
+                        <div class="css-container">
+                            <p class="css-large"><b><i class="fa fa-asterisk fa-fw css-margin-right"></i>SERVER OPTIONS</b></p>
+                            <p>
+                                <label for="srv_url"><i class="fa fa-server fa-fw css-margin-right css-large"></i>Server Adress</label>
+                                <input type="text" class="css-input" id="srv_url" name="srv_url" onchange="fetch_server_data()" value="http://">
+                                <br>
+                                <label for="srv_pwd"><i class="fa fa-key fa-fw css-margin-right css-large"></i>Admin PWD</label>
+                                <input type="password" class="css-input" id="srv_pwd" name="srv_pwd" onchange="fetch_server_data()">
+                                <br>
+                                <label for="srv_refresh"><i class="fa fa-refresh fa-fw css-margin-right css-large"></i>Refresh rate</label>
+                                <input type="number" class="css-input" id="srv_refresh" name="srv_refresh" value="5">
+                            </p>
+
+                            <p class="css-large"><b><i class="fa fa-asterisk fa-fw css-margin-right"></i>SERVER INFO</b></p>
+                            <p><i class="fa fa-gear fa-fw css-margin-right css-large"></i>Version: <a id="srv_version">N.A</a></p>
+                            <p><i class="fa fa-group fa-fw css-margin-right css-large"></i>Online: <a id="srv_online">N.A</a></p>
+                            <p><i class="fa fa-group fa-fw css-margin-right css-large"></i>Idle: <a id="srv_idle">N.A</a></p>
+                            <hr>
+    
+                            <p class="css-large"><b><i class="fa fa-asterisk fa-fw css-margin-right"></i>TRAFFIC INFO</b></p>
+                            <p><i class="fa fa-upload fa-fw css-margin-right css-large"></i>Upload: <a id="srv_upload">0</a> kB/s</p>
+                            <p><i class="fa fa-download fa-fw css-margin-right css-large"></i>Download: <a id="srv_download">0</a> kB/s</p>
+                            <p><i class="fa fa-upload fa-fw css-margin-right css-large"></i>Upload Packets: <a id="srv_uploadpack">0</a> packets/s</p>
+                            <p><i class="fa fa-download fa-fw css-margin-right css-large"></i>Download Packets: <a id="srv_downloadpack">0</a> packets/s</p>
+                            <br>
+                            <button class="css-button css-round css-dark-grey css-center css-margin-bottom" style="width: 100%" onclick="fetch_server_data()">Manual Refresh</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column -->
+                <div class="css-twothird" id="rooms">
+                    <div class="css-center">
+                        <h2 class="css-text-grey css-padding-16 css-animate-top"><i class="fa fa-arrow-down fa-fw css-margin-right css-xxlarge"></i>Rooms should display here<i class="fa fa-arrow-down fa-fw css-margin-right css-xxlarge"></i></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="css-container css-black css-center css-margin-top footer css-text-grey">
+            <p>
+                <i class="fa fa-star fa-fw"></i><u>Switch Lan-Play Info</u> by Alexandre SAUVAGE POTEL<i class="fa fa-star fa-fw"></i>
+            </p>
+        </footer>
+
+        <script>
+            // Get url parameters
+            const queryString = window.location.search;
+            console.log(queryString);
+
+            // Variables definition
+            room_index = 0;
+
+            $rooms = $("#rooms");
+            $srv_url = $('#srv_url');
+            $srv_pwd = $('#srv_pwd');
+            $srv_refresh = $('#srv_refresh');
+            $srv_version = $('#srv_version');
+            $srv_online = $('#srv_online');
+            $srv_idle = $('#srv_idle');
+            $srv_upload = $('#srv_upload');
+            $srv_download = $('#srv_download');
+            $srv_uploadpack = $('#srv_uploadpack');
+            $srv_downloadpack = $('#srv_downloadpack');
+    
+            const urlParams = new URLSearchParams(queryString);
+            $srv_url.val(urlParams.get('srv_url'));
+            $srv_pwd.val(urlParams.get('srv_pwd'));
+        </script>
+    </body>
+</html>

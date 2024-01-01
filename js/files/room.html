@@ -1,0 +1,21 @@
+<div class="css-container css-card css-white css-margin-bottom css-animate-top css-round" id="room-{index}">
+    <div class="css-twothird">
+        <h2 class="css-text-grey css-padding-16"><i class="fa fa-gamepad fa-fw css-margin-right css-xxlarge"></i>{title}</h2>
+        <p><i class="fa fa-user fa-fw css-margin-right css-large"></i>Host: {hostname}</a></p>
+        <p><i class="fa fa-group fa-fw css-margin-right css-large"></i>Player count: {playercount}/{playercountmax}</a></p>
+                                                                                    
+        <table id="room-player-{index}" class="css-table css-bordered">
+            <thead>
+                <tr>
+                    <th colspan="2" class="css-dark-grey">Player List</th>
+                </tr>
+            </thead>
+            <tbody>
+                {playerlist}
+            </tbody>
+        </table>
+    </div>
+    <div class=""css-third>
+        <img src="{image}" class="css-padding-top css-margin-top css-margin-left css-margin-bottom css-round-large" width="31%">
+    </div>
+</div>
